@@ -1,0 +1,11 @@
+#!/bin/sh
+
+COMMIT_MSG_FILE=$1
+COMMIT_SOURCE=$2
+SHA1=$3
+
+TICKET=$(git rev-parse --abbrev-ref HEAD |  sed -n 's/.*\([N]-[1-9]*\).*/\1/pi')
+
+if [ -n "$TICKET" ]; then
+	echo "[$TICKET]: " > $1
+fi
